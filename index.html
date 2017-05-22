@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="bootstrap.min.css" rel="stylesheet">
+	<style>
+		body {
+			padding: 30px;
+			background-color: ghostwhite;
+		}
+
+		.left-button {
+			float: left;
+		}
+
+		.right-button {
+			float: right;
+		}
+
+		button {
+			margin: 20px 0;
+			width: 42%;
+			height: 50px !important;
+		}
+
+		input {
+			margin: 30px 0;
+			width: 90%;
+		}
+
+		h4, h5 {
+			text-align: center;
+		}
+
+		.img {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+	</style>
+	<script>
+		function resWrite() {
+			var a = document.getElementById("cost").value;
+			var b = document.getElementById("gram").value;
+			var result = (a / b * 1000).toFixed(2);
+			var calculation = document.getElementById("res");
+			calculation.innerHTML = `${result} руб`;
+		}
+		function resetForm() {
+			document.getElementById("cost").value = '';
+			document.getElementById("gram").value = '';
+			document.getElementById("res").innerHTML = '0.00 руб';
+		}
+	</script>
+	<title>Калькулятор стоимости товара за кг</title>
+</head>
+<body>
+<h4>Калькулятор стоимости товара</h4>
+<div>
+	<input id="cost" type="tel" class="form-control" autocomplete="off" placeholder="Цена, руб.">
+</div>
+<div>
+	<input id="gram" type="tel" class="form-control" autocomplete="off" placeholder="Вес, грамм">
+</div>
+<h5>Стоимость товара за кг:</h5>
+<h4 id="res">0.00 руб</h4>
+<button type="button" onclick="resWrite()" class="btn btn-primary left-button">Рассчитать</button>
+<button type="button" onclick="resetForm()" class="btn btn-primary right-button">Очистить</button>
+<div class="img">
+	<img src="sticker.png" width="180"/>
+</div>
+</body>
+</html>
